@@ -1,24 +1,12 @@
-const greeting = document.getElementById("greeting")
-const weather = document.getElementById("weather");
-const salt = document.getElementById("salt")
-const portfolio = document.getElementById("portfolio")
+const btn = document.getElementById("menu-btn");
+const overlay = document.querySelector(".overlay2");
+const menu = document.getElementById('mobile-menu');
 
+btn.addEventListener('click', navToggle);
 
-let isMouseHover = false;
-greeting.addEventListener('mouseleave', function(e) {
-    isMouseHover = false;
-    overlay()
-})
-
-greeting.addEventListener('mouseover', function(e){
-    isMouseHover = true;
-    overlay()
-})
-
-function overlay(){
-    greeting.classList.toggle('overlay1')
+function navToggle(){
+    btn.classList.toggle('open');
+    overlay.classList.toggle('overlay-show');
+    document.body.classList.toggle('stop-scrolling');
+    menu.classList.toggle('show-menu')
 }
-
-// $(".hover").mousleave(functon(){
-//     $(this).removeClass("hover")
-// })

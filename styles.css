@@ -41,27 +41,27 @@ a{
     margin: 50px
 }
 
-.desktop-main-menu ul{
+.desktop-main-menu ul, .footer-menu ul{
     display: flex;
     list-style-type: none;
     align-items: center;
     justify-content: center;
 }
 
-.desktop-main-menu ul li{
+.desktop-main-menu ul li, .footer-menu ul li{
 
     position: relative;
     margin-right: 20px;
     padding-bottom: 2px;
 }
 
-header nav ul img{
+header nav ul img, footer ul img{
     height: 25px;
     width: 25px;
     border-radius: 5px;
 }
 
-.desktop-main-menu ul li a::after{
+.desktop-main-menu ul li a::after, .footer-menu ul li a::after{
     content: '';
     position: absolute;
     bottom: 0;
@@ -74,7 +74,7 @@ header nav ul img{
     transform-origin: right center;
 }
 
-.desktop-main-menu ul li a:hover::after{
+.desktop-main-menu ul li a:hover::after, .footer-menu ul li a:hover::after{
     transform: scaleX(1);
     transform-origin: left center;
     transition-duration: .4s;
@@ -84,6 +84,7 @@ header nav ul img{
     display: flex;
     flex-direction: column;
     padding-left: 32px;
+    padding-right: 32px;
     height: 80%;
 }
 .section-header{
@@ -101,6 +102,12 @@ header nav ul img{
     font-size: 20px;
     margin-bottom: 3rem;
     line-height: 30px;
+}
+
+.skills-header{
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 3rem;
 }
 
 .skills{
@@ -135,7 +142,7 @@ header nav ul img{
 }
 
 .project-section{
-    height: 100vh;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -210,7 +217,7 @@ header nav ul img{
 
 .project{
     font-size: 50px;
-    margin: 0px 20px 40px 20px;
+    
     width: 100%;
     text-align: center;
     height: 10%;
@@ -240,10 +247,254 @@ header nav ul img{
     color: grey
 }
 
-.overlay1{
-   background: url(img/boostrap.png);
-   z-index: 99;
+
+
+footer{
+    position: relative;
+    padding: 25px 0;
+    background: rgb(61, 61, 61);
+    margin-top: 2rem;
+    flex-shrink: 0;
 }
 
+.hamburger{
+    display: none;
+}
+
+.mobile-only{
+    display: none;
+}
+
+
+@media screen and (max-width: 800px) {
+    .greet{
+        font-size: 40px;
+    }
+
+    .skills{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+        justify-items: center;
+
+    }
+
+    .skills .card{
+        width: 50%;
+        
+    }
+
+    .about{
+        display: none;
+    }
+
+    .project{
+        margin-top: 3rem;
+    }
+
+    .card-section{
+        width: 100%;
+        align-items: center;
+        justify-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        height: 90vh;
+        padding: 0 2rem;
+    }
+    .project-card{
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay{
+        width: 45.2%;
+    }
+}
+
+@media screen and (max-width: 730px) {
+
+    .desktop-main-menu{
+        display: none;
+    }
+
+
+    .overlay{
+        width: 44.6%;
+    }
+
+    /* hamburger */
+.hamburger{
+    display: block;
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    z-index: 99;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+}
+
+.hamburger-top,
+.hamburger-mid,
+.hamburger-bot{
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background: white;
+    transition: all 0.5s;
+}
+
+.hamburger-mid{
+    transform: translateY(5px);
+}
+
+.hamburger-bot{
+    transform: translateY(10px);
+}
+
+.open{
+    transform: rotate(90deg);
+
+}
+
+.open .hamburger-top{
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-mid{
+    display: none;
+}
+
+.open .hamburger-bot{
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+.overlay-show{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 5;
+}
+
+.stop-scrolling{
+    overflow: hidden;
+}
+
+.mobile-main-menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    z-index: 6;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.show-menu{
+    transform: translateX(0);
+}
+
+.mobile-main-menu ul{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding: 50px;
+    width: 100%;
+}
+
+.mobile-main-menu ul li{
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-bottom: 1px #555 solid;
+    width: 100%;
+    text-align: end;
+    padding-bottom: 8px;
+}
+
+
+.mobile-main-menu ul li a{
+    color:white;
+    transition: color 0.6s;
+}
+
+
+.mobile-main-menu ul li a:hover{
+    color: #aaa
+}
+
+.mobile-only{
+    display: block;
+
+}
+
+}
+
+@media screen and (max-width: 620px) {
+
+    .greet{
+        font-size: 30px;
+    }
+
+    .main-section{
+        align-items: center;
+        height: auto;
+        margin-bottom: 5rem;
+    }
+
+    hr{
+        display: none;
+    }
+
+    .skills{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .skills .card{
+        width: 100px;
+        height: 100px;
+    }
+    .project-section{
+        height: auto;
+    }
+
+    .card-section{
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .project-card{
+        width: 290px
+    }
+
+    .overlay{
+        width: 290px;
+    }
+
+    footer{
+        display: none;
+    }
+    
+}
 
 
